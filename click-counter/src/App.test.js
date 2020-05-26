@@ -27,4 +27,16 @@ test('Counter starts at 0', () => {
   const initialCounterState = wrapper.state('counter');
   expect(initialCounterState).toBe(0);
 });
-test('Clicking button increments counter display', () => {});
+test('Clicking button increments counter display', () => {
+  const counter = 7;
+  const wrapper = Enzyme.shallow(<App />);
+  wrapper.setState({ counter });
+
+  // find button and click
+  const button = wrapper.find('[data-test="increment-button"]');
+  button.simulate('click');
+
+  // find display and test value
+  const counterDisplay = wrapper.find('[data-test="counter-display"]');
+  expect(counterDisplay.text()).toContain(counter + 1);
+});
