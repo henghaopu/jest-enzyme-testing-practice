@@ -6,7 +6,8 @@ class App extends Component {
   render() {
     return (
       <div className='App' data-test='component-app'>
-        <Counter />
+        <h1 data-test='counter-display'>The count is</h1>
+        <button data-test='increment-button'>Increment counter</button>
       </div>
     );
   }
